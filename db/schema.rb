@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_140546) do
   enable_extension "plpgsql"
 
   create_table "stats", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "calories_to_maintain"
     t.integer "calories_for_goal"
     t.integer "bmr"
