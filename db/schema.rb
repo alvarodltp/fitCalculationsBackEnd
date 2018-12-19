@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_11_05_140546) do
   enable_extension "plpgsql"
 
   create_table "stats", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "calories_to_maintain"
     t.integer "calories_for_goal"
     t.integer "bmr"
@@ -39,7 +40,8 @@ ActiveRecord::Schema.define(version: 2018_11_05_140546) do
     t.integer "age"
     t.float "weight_in_kg"
     t.float "weight_in_lb"
-    t.float "height_in_feet"
+    t.integer "height_in_feet"
+    t.integer "height_in_inches"
     t.float "height_in_cm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

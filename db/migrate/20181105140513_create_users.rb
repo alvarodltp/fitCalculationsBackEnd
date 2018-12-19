@@ -10,7 +10,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
      t.integer :age
      t.float :weight_in_kg
      t.float :weight_in_lb
-     t.float :height_in_feet
+     t.integer :height_in_feet
+     t.integer :height_in_inches
      t.float :height_in_cm
      t.timestamps
     end

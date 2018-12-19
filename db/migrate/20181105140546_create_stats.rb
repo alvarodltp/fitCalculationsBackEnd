@@ -1,6 +1,7 @@
 class CreateStats < ActiveRecord::Migration[5.2]
   def change
     create_table :stats do |t|
+      t.integer :user_id
       t.integer :calories_to_maintain
       t.integer :calories_for_goal
       t.integer :bmr

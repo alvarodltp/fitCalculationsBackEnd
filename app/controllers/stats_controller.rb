@@ -1,5 +1,5 @@
 class StatsController < ApplicationController
-  before_action :find_stat, only: [:update]
+  # before_action :find_stat
 
   def index
     render json: Stat.all
@@ -13,22 +13,9 @@ class StatsController < ApplicationController
     render json: Stat.create(stat_params)
   end
 
-  def update
-    @stat.update(stat_params)
-    if @stat.save
-      render json: @stat, status: :accepted
-    else
-      render json: { errors: @stat.errors.full_messages }, status: :unprocessible_entity
-    end
-  end
-
   private
   def stat_params
-    params.require(:stat).permit(:calories_to_maintain, :calories_for_goal, :bmr, :protein_grams, :carb_grams, :fat_grams, :protein_percentage, :carb_percentage, :fat_percentage)
-  end
-
-  def find_stat
-    @stat = Stat.find(params[:id])
+    params.require(:stat).permit(:user_id, :calories_to_maintain, :calories_for_goal, :bmr, :protein_grams, :carb_grams, :fat_grams, :protein_percentage, :carb_percentage, :fat_percentage)
   end
 
 end
