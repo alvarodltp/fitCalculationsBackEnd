@@ -15,7 +15,7 @@ class StatsController < ApplicationController
 
   private
   def stat_params
-    params.require(:stat).permit(:user_id, :calories_to_maintain, :calories_for_goal, :bmr, :protein_grams, :carb_grams, :fat_grams, :protein_percentage, :carb_percentage, :fat_percentage)
+    params.require(:stat).permit(:user_id, :date, :calories_to_maintain, :calories_for_goal, :bmr, :protein_grams, :carb_grams, :fat_grams, :protein_percentage, :carb_percentage, :fat_percentage)
   end
 
 end
