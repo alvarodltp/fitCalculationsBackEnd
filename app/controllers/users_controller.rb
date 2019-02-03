@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      render json: @user, status: :accepted
+      # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
       # Deliver the signup email
