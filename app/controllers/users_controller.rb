@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       render json: @user, status: :accepted
       if @user["email"] != ""
       # Deliver the signup email
-      UserNotifier.send_signup_email(@user).deliver
+      UserNotifierMailer.send_signup_email(@user).deliver
       redirect_to(@user, :notice => 'User created')
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
