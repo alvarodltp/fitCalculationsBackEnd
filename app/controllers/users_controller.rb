@@ -21,7 +21,6 @@ class UsersController < ApplicationController
       if @user["email"] != ""
       # Deliver the signup email
       UserNotifierMailer.send_signup_email(@user).deliver
-      UserNotifierMailer.add_user_to_list(@user).deliver
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
       end

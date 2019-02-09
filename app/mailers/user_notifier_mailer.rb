@@ -8,10 +8,10 @@ class UserNotifierMailer < ApplicationMailer
     :subject => 'Thanks for signing up for our amazing app' )
   end
 
-  def add_user_to_list(user)
-    api_key = ENV['SENDGRID_API']
-    headers = {'Authorization' => "Bearer #{ENV['SENDGRID_API']}"}
-    data = {:email => @user.email}
-    response = RestClient.post 'https://api.sendgrid.com/v3/contactdb/lists/{8274}/recipients/{@user.id}', [data].to_json, headers
-  end
+  # def add_user_to_list(user)
+  #   api_key = ENV['SENDGRID_API']
+  #   headers = {'Authorization' => "Bearer #{ENV['SENDGRID_API']}"}
+  #   data = {:email => @user.email}
+  #   response = RestClient.post 'https://api.sendgrid.com/v3/contactdb/lists/{8274}/recipients/{@user["id"]}', [data].to_json, headers
+  # end
 end
