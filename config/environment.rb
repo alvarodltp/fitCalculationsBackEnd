@@ -5,8 +5,8 @@ require_relative 'application'
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  :user_name => "",
-  :password => "",
+  :user_name => ENV["MAIL_USERNAME"],
+  :password => ENV["MAIL_PASSWORD"],
   :domain => 'https://www.fitcalculations.com/bmr-calories-macros',
   :address => 'smtp.sendgrid.net',
   :port => 587,
