@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
       # Deliver the signup email
-      UserNotifierMailer.add_contact(@user)
+      ActiveCampaign.add_contact(@user)
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
       end
