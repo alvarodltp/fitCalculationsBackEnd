@@ -6,11 +6,4 @@ class MailActions < ApplicationMailer
   #   mail( :to => @user.email,
   #   :subject => 'Thanks for signing up for our amazing app' )
   # end
-
-  def add_contact(user)
-    @user = user
-    active_campaign.contact_add(
-      email: @user.email,
-      first_name: @user.name)
   end
-end

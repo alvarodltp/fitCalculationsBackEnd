@@ -20,7 +20,9 @@ class UsersController < ApplicationController
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
       # Deliver the signup email
-      MailActions.add_contact(@user)
+      active_campaign.contact_add(
+        email: @user.email,
+        first_name: @user.name)
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
       end
