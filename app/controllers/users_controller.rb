@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:update]
+  before_action :find_user, :active_campaign, only: [:update]
 
   def index
     render json: User.all
@@ -36,6 +36,10 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def active_campaign
+    @active_campaign = ACTIVE_CAMPAIGN # this will be enough to fetch the constants.
   end
 
 end
