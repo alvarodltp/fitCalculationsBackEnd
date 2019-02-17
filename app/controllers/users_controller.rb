@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
       # Deliver the signup email
-      @active_campaign.contact_add(
+      active_campaign.contact_add(
         email: @user.email,
         first_name: @user.name)
     else
