@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
+  def active_campaign
+    ActiveCampaign.new(
+      api_endpoint: ENV['END_POINT'], # e.g. 'https://yourendpoint.api-us1.com'
+      api_key: ENV['ACTIVE_CAMPAING_API']) # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+  end
+
   def index
     render json: User.all
   end
