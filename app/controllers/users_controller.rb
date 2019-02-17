@@ -39,7 +39,9 @@ class UsersController < ApplicationController
   end
 
   def active_campaign
-    @active_campaign = ACTIVE_CAMPAIGN # this will be enough to fetch the constants.
+    @active_campaign = ActiveCampaign.new(
+      api_endpoint: ENV['END_POINT'], # e.g. 'https://yourendpoint.api-us1.com'
+      api_key: ENV['ACTIVE_CAMPAING_API']) # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
   end
 
 end
