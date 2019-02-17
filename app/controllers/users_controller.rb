@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
-  active_campaign = ActiveCampaign.new(
-    api_endpoint: ENV['END_POINT'], # e.g. 'https://yourendpoint.api-us1.com'
-    api_key: ENV['ACTIVE_CAMPAING_API']) # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
-
   def index
     render json: User.all
   end
@@ -24,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
       # Deliver the signup email
-      active_campaign.contact_add(
+      @active_campaign.contact_add(
         email: @user.email,
         first_name: @user.name)
     else
