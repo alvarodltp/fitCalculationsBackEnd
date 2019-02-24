@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_30_190259) do
+ActiveRecord::Schema.define(version: 2019_02_24_020930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2018_12_30_190259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "date"
+    t.string "diet_type"
+    t.string "reason_to_get_fit"
   end
 
 end
