@@ -30,6 +30,7 @@ gem 'active_campaign', '~> 0.1.15'
 gem 'rack-cors'
 gem 'sendgrid-ruby'
 gem 'figaro'
+gem 'rb-readline', '~> 0.5.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

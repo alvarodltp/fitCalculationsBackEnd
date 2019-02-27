@@ -25,14 +25,11 @@ class UsersController < ApplicationController
       # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
-      # Deliver the signup email
       ActiveCampaign.contact_create({
-       "id" => @user.active_campaign_contact_id,
+       "id" => @user.id,
        "email" => @user.email,
        "first_name" => @user.name,
        "age" => @user.age
-       # "p[#{user.active_campaign_list_id}]" => user.active_campaign_list_id,
-       # "status[#{user.active_campaign_list_id}]" => user.receive_emails ? 1 : 2
      })
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
