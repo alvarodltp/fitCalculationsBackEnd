@@ -24,15 +24,15 @@ class UsersController < ApplicationController
     if @user.save
       # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
-      if @user["email"] != ""
-      ActiveCampaign.contact_create({
-       "id" => @user.id,
-       "email" => @user.email,
-       "first_name" => @user.name,
-       "age" => @user.age
-     })
+     #  if @user["email"] != ""
+     #  ActiveCampaign.contact_sync({
+     #   "id" => @user.id,
+     #   "email" => @user.email,
+     #   "first_name" => @user.name,
+     #   "age" => @user.age
+     # })
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity and return
       end
     end
   end
