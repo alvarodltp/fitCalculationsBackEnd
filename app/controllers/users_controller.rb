@@ -2,15 +2,10 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
   # def client
-  #   ::ActiveCampaign::Client.new(
-  #       api_endpoint: ENV['END_POINT'],
-  #       api_key: ENV['ACTIVE_CAMPAING_API'])
+  #   ActiveCampaign.new(
+  #     api_endpoint: ENV['END_POINT'],
+  #     api_key: ENV['ACTIVE_CAMPAING_API'])
   # end
-  def initialize
-    @client = ActiveCampaign.new(
-      api_endpoint: ENV['END_POINT'],
-      api_key: ENV['ACTIVE_CAMPAING_API'])
-  end
 
   def index
     render json: User.all
@@ -25,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    ActiveCampaign.new(
+      api_endpoint: ENV['END_POINT'],
+      api_key: ENV['ACTIVE_CAMPAING_API'])
     @user.update(user_params)
     if @user.save
       # render json: @user, status: :accepted
