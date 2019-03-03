@@ -1,6 +1,6 @@
-client = ::ActiveCampaign::Client.new(
-        api_endpoint: ENV['END_POINT'],
-        api_key: ENV['ACTIVE_CAMPAING_API'])
+# client = ::ActiveCampaign::Client.new(
+#         api_endpoint: ENV['END_POINT'],
+#         api_key: ENV['ACTIVE_CAMPAING_API'])
 
 
 # ActiveCampaign.configure do |config|
@@ -17,11 +17,3 @@ client = ::ActiveCampaign::Client.new(
 # ::ActiveCampaign::Client.new(
 #     api_endpoint: ENV['END_POINT'],
 #     api_key: ENV['ACTIVE-CAMPAIGN-API'])
-
-
-# ActiveCampaign.contact_sync({
-#            "id" => "1",
-#         "email" => "hello@gmail.com",
-#    "first_name" => "Someone",
-#     "last_name" => "Testing"
-# })

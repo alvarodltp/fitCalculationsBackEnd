@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
-  def active_campaign
-    ActiveCampaign.new(
-      api_endpoint: ENV['END_POINT'], # e.g. 'https://yourendpoint.api-us1.com'
-      api_key: ENV['ACTIVE_CAMPAING_API']) # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'
+  def client
+    ::ActiveCampaign::Client.new(
+        api_endpoint: ENV['END_POINT'],
+        api_key: ENV['ACTIVE_CAMPAING_API'])
   end
 
   def index
@@ -24,13 +24,12 @@ class UsersController < ApplicationController
     if @user.save
       # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
-     #  if @user["email"] != ""
-     #  ActiveCampaign.contact_sync({
-     #   "id" => @user.id,
-     #   "email" => @user.email,
-     #   "first_name" => @user.name,
-     #   "age" => @user.age
-     # })
+      if @user["email"] != ""
+    client.contact_sync({
+             "id" => @user.id,
+          "email" => @user.email,
+     "first_name" => @user.name
+    })
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity and return
       end
