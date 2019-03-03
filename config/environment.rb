@@ -4,6 +4,11 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
+ActiveCampaign.new(
+  api_endpoint: ENV['END_POINT'],
+  api_key: ENV['ACTIVE_CAMPAING_API'])
+
+
 # client = ::ActiveCampaign::Client.new(
 #         api_endpoint: ENV['END_POINT'], # e.g. 'https://yourendpoint.api-us1.com/admin/api.php'
 #         api_key: ENV['ACTIVE-CAMPAIGN-API']) # e.g. 'a4e60a1ba200595d5cc37ede5732545184165e'

@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
-  # def client
-  #   ActiveCampaign.new(
-  #     api_endpoint: ENV['END_POINT'],
-  #     api_key: ENV['ACTIVE_CAMPAING_API'])
-  # end
-
   def index
     render json: User.all
   end
@@ -28,7 +22,7 @@ class UsersController < ApplicationController
       # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
-      @client.contact_add(
+      ActiveCampaign.contact_add(
         email: @user.email,
         first_name: @user.name)
     else
