@@ -25,7 +25,7 @@ gem 'active_model_serializers'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'active_campaign', '~> 0.1.15'
+gem 'active-campaign-rails'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 gem 'sendgrid-ruby'
