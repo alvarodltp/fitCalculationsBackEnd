@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       # render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
       if @user["email"] != ""
-      @@client.contact_add(
+      client.contact_add(
         email: @user.email,
         first_name: @user.name)
     else
