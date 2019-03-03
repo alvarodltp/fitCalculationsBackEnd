@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    ActiveCampaign.new(
+    @client = ActiveCampaign.new(
       api_endpoint: ENV['END_POINT'],
       api_key: ENV['ACTIVE_CAMPAING_API'])
     @user.update(user_params)
