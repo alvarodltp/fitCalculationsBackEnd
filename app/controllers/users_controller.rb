@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:update]
+  before_action :find_user, :client, only: [:update]
 
   # def client
   #   ::ActiveCampaign::Client.new(
