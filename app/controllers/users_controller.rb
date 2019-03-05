@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, :client, only: [:update]
+  before_action :find_user, only: [:update]
 
   def index
     render json: User.all
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
-      # render json: @user, status: :accepted
+      render json: @user, status: :accepted
       redirect_to(@user, :notice => 'User created')
       # if @user["email"] != ""
       # # client.contact_add(
       # #   email: @user.email,
       # #   first_name: @user.name)
     else
-      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity and return
+      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
     end
   end
 
