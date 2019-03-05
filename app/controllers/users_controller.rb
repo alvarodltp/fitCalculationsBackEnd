@@ -24,7 +24,6 @@ class UsersController < ApplicationController
       # #   first_name: @user.name)
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity and return
-      end
     end
   end
 
