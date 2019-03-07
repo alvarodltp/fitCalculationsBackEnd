@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       render json: @user, status: :accepted
-      redirect_to(@user, :notice => 'User created')
+      # redirect_to(@user, :notice => 'User created')
       # if @user["email"] != ""
       # # client.contact_add(
       # #   email: @user.email,
