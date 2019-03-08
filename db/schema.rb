@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_162447) do
     t.integer "age"
     t.float "weight_in_kg"
     t.float "weight_in_lb"
-    t.float "height_in_feet"
+    t.integer "height_in_feet"
+    t.integer "height_in_inches"
     t.float "height_in_cm"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

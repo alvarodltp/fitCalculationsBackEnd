@@ -16,12 +16,11 @@ class UsersController < ApplicationController
   def update
     @user.update(user_params)
     if @user.save
+      client.contact_add(
+        email: @user.email,
+        first_name: @user.name) if @user.email.present?
       render json: @user, status: :accepted
       # redirect_to(@user, :notice => 'User created')
-      # if @user["email"] != ""
-      # # client.contact_add(
-      # #   email: @user.email,
-      # #   first_name: @user.name)
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
     end
