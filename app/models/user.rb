@@ -4,8 +4,7 @@ class User < ApplicationRecord
 
   def saveUserAfterCreate
     client.contact_add(
-      email: self.email,
-      p[2]: "2"
+      email: self.email
     )
   end
 
