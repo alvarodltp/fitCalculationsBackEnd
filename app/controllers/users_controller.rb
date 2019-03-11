@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
+  after_create :saveUserAfterCreate
 
   def index
     render json: User.all
@@ -11,6 +12,10 @@ class UsersController < ApplicationController
 
   def create
     render json: User.create(user_params)
+  end
+
+  def saveUserAfterCreate
+    client.contact_add(email: self.email)
   end
 
   def update
