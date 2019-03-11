@@ -3,7 +3,10 @@ class User < ApplicationRecord
   after_create :saveUserAfterCreate
 
   def saveUserAfterCreate
-    client.contact_add(email: self.email)
+    client.contact_add(
+      email: self.email,
+      p[2]: 2
+    )
   end
 
 end
