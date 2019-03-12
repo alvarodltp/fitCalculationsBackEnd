@@ -17,11 +17,19 @@ class UsersController < ApplicationController
     @user.update(user_params)
     if @user.save
       client.contact_add(
-        "email" => @user.email,
         "p[2]" => 1,
         "first_name" => @user.name,
-        "age" => @user.age,
-        "gender" => @user.gender) if @user.email.present?
+        "email" => @user.email,
+        "field[%AGE%,0]" => @user.age,
+        "field[%ACTIVITY_LEVEL%,0]" => @user.activity_level,
+        "field[%GOAL%,0]" => @user.goal,
+        "field[%BODY_TYPE%,0]" => @user.body_type,
+        "field[%WEIGHT_LB%,0]" => @user.weight_in_lb,
+        "field[%HEIGHT_IN_FEET%,0]" => @user.height_in_feet,
+        "field[%DIET_TYPE%,0]" => @user.diet_type,
+        "field[%REASON_TO_GET_FIT%,0]" => @user.reason_to_get_fit,
+        "field[%CALORIES%,0]" => @user.stats[0].calories_for_goal
+        ) if @user.email.present?
       render json: @user, status: :accepted
       # redirect_to(@user, :notice => 'User created')
     else
