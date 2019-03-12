@@ -21,8 +21,25 @@ class UsersController < ApplicationController
         "first_name" => @user.name,
         "email" => @user.email,
         "field[1,0]" => @user.age,
-        "field[2,0]" => @user.gender
-        ) if @user.email.present?
+        "field[2,0]" => @user.gender,
+        "field[3,0]" => @user.activity_level,
+        "field[4,0]" => @user.body_type,
+        "field[5,0]" => @user.weight_in_lb,
+        "field[6,0]" => @user.height_in_feet,
+        "field[7,0]" => @user.diet_type,
+        "field[8,0]" => @user.reason_to_get_fit,
+        "field[9,0]" => @user.stats[0].calories_for_goal,
+        "field[10,0]" => @user.stats[0].bmr,
+        "field[11,0]" => @user.stats[0].bmi,
+        "field[12,0]" => @user.stats[0].calories_to_maintain,
+        "field[13,0]" => @user.stats[0].protein_grams,
+        "field[14,0]" => @user.stats[0].carb_grams,
+        "field[15,0]" => @user.stats[0].fat_grams,
+        "field[16,0]" => @user.stats[0].protein_percentage,
+        "field[17,0]" => @user.stats[0].carb_percentage,
+        "field[18,0]" => @user.stats[0].fat_percentage,
+        "field[19,0]" => @user.height_in_inches,
+        "field[20,0]" => @user.goal) if @user.email.present?
       render json: @user, status: :accepted
       # redirect_to(@user, :notice => 'User created')
     else
