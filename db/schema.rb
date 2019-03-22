@@ -51,5 +51,16 @@ ActiveRecord::Schema.define(version: 2019_03_07_162447) do
     t.string "diet_type"
     t.string "reason_to_get_fit"
   end
-
 end
+
+# t.string "diet_type"
+# t.string "reason_to_get_fit"
+# t.string "activity_level"
+# t.string "goal"
+# t.string "body_type"
+# t.integer "age"
+# t.float "weight_in_kg"
+# t.float "weight_in_lb"
+# t.integer "height_in_feet"
+# t.integer "height_in_inches"
+# t.float "height_in_cm"
