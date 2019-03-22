@@ -44,8 +44,8 @@ class UsersController < ApplicationController
       # redirect_to(@user, :notice => 'User created')
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+    end
   end
-
   private
   def user_params
     params.require(:user).permit(:name, :email, :gender)
