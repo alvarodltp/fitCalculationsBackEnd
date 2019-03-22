@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    # if @user.save
+    if @user.save
     #   client.contact_add(
     #     "p[1]" => 1,
     #     "first_name" => @user.name,
