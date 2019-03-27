@@ -57,6 +57,6 @@ class StatsController < ApplicationController
   end
 
   def find_user
-    @user = Self.user
+    @user = Stat.user
   end
 end
