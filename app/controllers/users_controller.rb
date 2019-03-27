@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:update]
 
-  def self.add_contact
+  def add_contact
       client.contact_add(
         "p[1]" => 1,
         "first_name" => @user.name,
