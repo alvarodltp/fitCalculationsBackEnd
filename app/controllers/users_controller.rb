@@ -46,12 +46,13 @@ class UsersController < ApplicationController
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
     end
   end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :gender)
   end
 
   def find_user
-    @@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 end
