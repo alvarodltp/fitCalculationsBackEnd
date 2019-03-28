@@ -1,5 +1,6 @@
 class StatsController < ApplicationController
   before_action :find_stat, only: [:update]
+  before_action :find_user, only: [:create]
 
   def index
     render json: Stat.all
@@ -13,8 +14,8 @@ class StatsController < ApplicationController
     render json: Stat.create(stat_params)
     client.contact_add(
       "p[1]" => 1,
-      "first_name" => self.user[0].name,
-      "email" => self.user[0].email,
+      "first_name" => @user.name,
+      "email" => @user.email,
       "field[1,0]" => self.age,
       "field[2,0]" => self.gender,
       "field[3,0]" => self.activity_level,
@@ -53,5 +54,9 @@ class StatsController < ApplicationController
 
   def find_stat
     @stat = Stat.find(params[:id])
+  end
+
+  def find_stat
+    @user = User.find(params[:id])
   end
 end
