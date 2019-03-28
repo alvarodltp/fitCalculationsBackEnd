@@ -1,6 +1,5 @@
 class StatsController < ApplicationController
   before_action :find_stat, only: [:update]
-  before_action :find_user, only: [:create]
 
   def index
     render json: Stat.all
