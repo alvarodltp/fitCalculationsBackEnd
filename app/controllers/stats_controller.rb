@@ -13,8 +13,8 @@ class StatsController < ApplicationController
     render json: Stat.create(stat_params)
     client.contact_add(
       "p[1]" => 1,
-      "first_name" => self.user.name,
-      "email" => self.user.email,
+      "first_name" => self.user[0].name,
+      "email" => self.user[0].email,
       "field[1,0]" => self.age,
       "field[2,0]" => self.gender,
       "field[3,0]" => self.activity_level,
