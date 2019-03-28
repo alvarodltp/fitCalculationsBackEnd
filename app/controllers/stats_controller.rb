@@ -56,7 +56,7 @@ class StatsController < ApplicationController
     @stat = Stat.find(params[:id])
   end
 
-  def find_stat
-    @user = User.find(params[:id])
+  def find_user
+    @user = Stat.user.find(params[:id])
   end
 end
