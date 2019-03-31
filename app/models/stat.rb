@@ -8,7 +8,7 @@ class Stat < ApplicationRecord
         "first_name" => self.user.name,
         "email" => self.user.email,
         "field[1,0]" => self.age,
-        "field[2,0]" => self.gender,
+        "field[2,0]" => self.user.gender,
         "field[3,0]" => self.activity_level,
         "field[4,0]" => self.body_type,
         "field[5,0]" => self.weight_in_lb,
