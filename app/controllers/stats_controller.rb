@@ -11,7 +11,6 @@ class StatsController < ApplicationController
 
   def create
     render json: Stat.create(stat_params)
-    # User.add_contact
   end
 
   def update
