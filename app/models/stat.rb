@@ -3,7 +3,7 @@ class Stat < ApplicationRecord
   after_create :saveUserAfterStatCreate
 
   def saveUserAfterStatCreate
-      client.contact_add(
+      client.contact_sync(
         "p[1]" => 1,
         "first_name" => self.user.name,
         "email" => self.user.email,
