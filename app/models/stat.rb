@@ -26,6 +26,9 @@ class Stat < ApplicationRecord
         "field[17,0]" => self.carb_percentage,
         "field[18,0]" => self.fat_percentage,
         "field[19,0]" => self.height_in_inches,
-        "field[20,0]" =>self.goal) if self.user.email.present?
+        "field[20,0]" => self.goal,
+        "field[21,0]" => self.height_in_cm,
+        "field[22, 0]" => self.weight_in_kg,
+        "field[23, 0]" => self.measurement_system) if self.user.email.present?
   end
 end

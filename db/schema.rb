@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_22_160601) do
+ActiveRecord::Schema.define(version: 2019_04_10_150329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_22_160601) do
     t.float "height_in_cm"
     t.string "diet_type"
     t.string "reason_to_get_fit"
+    t.string "measurement_system"
   end
 
   create_table "users", force: :cascade do |t|
