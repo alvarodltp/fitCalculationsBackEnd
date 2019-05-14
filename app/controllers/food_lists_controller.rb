@@ -1,5 +1,5 @@
 class FoodListsController < ApplicationController
-  before_action :find_food_list, only: [:update]
+  before_action :find_food_list, only: [:update, :destroy]
 
   def index
     render json: FoodList.all
@@ -20,6 +20,10 @@ class FoodListsController < ApplicationController
     else
       render json: { errors: @food_list.errors.full_messages }, status: :unprocessible_entity
     end
+  end
+
+  def destroy
+    render json: FoodList.find(params[:id]).destroy
   end
 
   private
