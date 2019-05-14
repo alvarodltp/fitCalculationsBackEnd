@@ -6,7 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-foods = Food.create([{id: 1, value: "Chicken", category: "protein", isChecked: false},
-{id: 2, value: "Sweet Potato", category: "carbs", isChecked: false},
-{id: 3, value: "Olive Oil", category: "fats", isChecked: false},
-{id: 4, value: "Green Peppers", category: "veggies", isChecked: false}])
+food_list = FoodList.create([{user_id: 2, date: ""}])
