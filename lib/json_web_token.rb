@@ -6,10 +6,12 @@ class JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
         true, # Verify the signature of this token
-        algorithm: 'RS256',                          # RS256 or HS256
-        iss: 'https://www.fitcalculations.com/',    # something like 000.eu.auth0.com
+        algorithm: 'RS256',
+        iss: 'https://www.fitcalculations.com/.well-known/jwks.json/',
         verify_iss: true,
-        aud: Rails.application.secrets.auth0_api_audience,
+        # aud: Rails.application.secrets.auth0_api_audience, ## <----- Notice me!
+        # aud: Rails.application.credentials[Rails.env.to_sym][:auth0][:api_audience] ## With staging namespace
+        aud: Rails.application.credentials[:auth0][:api_audience], ## No staging namespace
         verify_aud: true) do |header|
       jwks_hash[header['kid']]
     end
