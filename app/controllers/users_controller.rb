@@ -1,5 +1,6 @@
+
 class UsersController < ApplicationController
-  has_secure_password
+  skip_before_action :authenticate, only: [:index, :create, :show, :update]
   before_action :find_user, only: [:update]
 
   # def self.add_contact
@@ -34,11 +35,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id])
+    render json: { user: UserSerializer.new(my_current_user) }, status: :accepted
   end
 
   def create
-    render json: User.create(user_params)
+    #if email is not present do this, else self.signup
+    # render json: User.create(user_params)
+    @user = User.create(user_params)
+    # debugger
+    if @user.valid?
+      render json: { user: UserSerializer.new(@user) }, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
+    end
+  end
+
+  def signup
+    @user = User.create(user_params)
+    # debugger
+    if @user.valid?
+      render json: { user: UserSerializer.new(@user) }, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
+    end
   end
 
   def update
@@ -77,7 +96,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :gender)
+    params.require(:user).permit(:name, :email, :gender, :password)
   end
 
   def find_user
