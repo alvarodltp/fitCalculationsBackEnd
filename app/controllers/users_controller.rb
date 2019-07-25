@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  has_secure_password
   before_action :find_user, only: [:update]
 
   # def self.add_contact
