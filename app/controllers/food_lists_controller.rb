@@ -23,9 +23,13 @@ class FoodListsController < ApplicationController
     end
   end
 
+  def destroy
+    render json: FoodList.find(params[:id]).destroy
+  end
+
   private
   def food_list_params
-    params.require(:food_list).permit(:date, :user_id)
+    params.require(:food_list).permit(:date, :user_id, :name)
   end
 
   def find_food_list
