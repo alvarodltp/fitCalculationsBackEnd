@@ -52,7 +52,6 @@ class UsersController < ApplicationController
 
   def signup
     @user = User.create(user_params)
-    # debugger
     if @user.valid?
       render json: { user: UserSerializer.new(@user) }, status: :created
     else
