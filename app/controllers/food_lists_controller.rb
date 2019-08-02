@@ -1,5 +1,6 @@
 class FoodListsController < ApplicationController
-  before_action :find_food_list, only: [:update, :destroy]
+  skip_before_action :authenticate
+  before_action :find_food_list, only: [:update]
 
   def index
     render json: FoodList.all

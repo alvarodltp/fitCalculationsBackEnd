@@ -1,4 +1,5 @@
 class StatsController < ApplicationController
+  skip_before_action :authenticate
   before_action :find_stat, only: [:update]
 
   def index
