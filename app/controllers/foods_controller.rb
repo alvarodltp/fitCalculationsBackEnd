@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
-
+  skip_before_action :authenticate
+  
   def index
     render json: Food.all
   end
