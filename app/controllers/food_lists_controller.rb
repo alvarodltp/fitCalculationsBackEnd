@@ -29,7 +29,7 @@ class FoodListsController < ApplicationController
 
   private
   def food_list_params
-    params.require(:food_list).permit(:date, :user_id, :name)
+    params.require(:food_list).permit(:date, :user_id, :name, :total_cost)
   end
 
   def find_food_list
