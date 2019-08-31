@@ -1,6 +1,6 @@
 
 class UsersController < ApplicationController
-  skip_before_action :authenticate, only: [:create, :update]
+  skip_before_action :authenticate, only: [:index, :create, :update]
   before_action :find_user, only: [:update]
 
   # def self.add_contact
